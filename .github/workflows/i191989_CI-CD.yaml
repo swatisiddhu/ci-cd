@@ -16,9 +16,7 @@ jobs:
     - name: Build Docker Image
       run: |
         docker build -t awaismohammad23/assignment_4:latest -f Dockerfile .
-        echo "${{ secrets.DOCKERHUB_TOKEN }}"
-        docker login -u awaismohammad23 --password-stdin
+        docker login -u awaismohammad23 -p ${{ secrets.DOCKERHUB_TOKEN }}
 
-        
     - name: Push Docker Image to DockerHub
       run: docker push awaismohammad23/assignment_4:latest
