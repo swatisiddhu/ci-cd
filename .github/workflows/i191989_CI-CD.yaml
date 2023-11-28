@@ -15,8 +15,8 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker build -t awaismohammad23/ubuntu_Assignment04:latest .
+        docker build -t awaismohammad23/assignment_4:latest .
         docker login -u awaismohammad23 -p ${{ secrets.DOCKERHUB_KEY }}
 
     - name: Push Docker Image to DockerHub
-      run: docker push awaismohammad23/ubuntu_Assignment04:latest
+      run: docker push awaismohammad23/assignment_4:latest
