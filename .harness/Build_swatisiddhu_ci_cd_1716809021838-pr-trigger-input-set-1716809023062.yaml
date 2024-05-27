@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_swatisiddhu_ci_cd_1716809021838-pr-trigger-input-set
+  identifier: Build_swatisiddhu_ci_cd_1716809021838prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_swatisiddhu_ci_cd_1716809021838
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
