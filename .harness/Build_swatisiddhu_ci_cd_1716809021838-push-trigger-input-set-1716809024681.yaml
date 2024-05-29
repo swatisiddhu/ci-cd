@@ -1,14 +1,17 @@
 inputSet:
   name: Build_swatisiddhu_ci_cd_1716809021838-push-trigger-input-set
+  tags: {}
   identifier: Build_swatisiddhu_ci_cd_1716809021838pushtriggerinputset
   orgIdentifier: default
   projectIdentifier: default_project
   pipeline:
     identifier: Build_swatisiddhu_ci_cd_1716809021838
-    properties:
-      ci:
-        codebase:
-          build:
-            type: branch
-            spec:
-              branch: <+trigger.branch>
+    template:
+      templateInputs:
+        properties:
+          ci:
+            codebase:
+              build:
+                type: branch
+                spec:
+                  branch: main
