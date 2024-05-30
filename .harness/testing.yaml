@@ -1,0 +1,56 @@
+pipeline:
+  name: testing
+  identifier: testing
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: Git
+        build: <+input>
+  stages:
+    - stage:
+        name: build
+        identifier: build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Docker
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: S3Upload
+                  name: S3Upload_1
+                  identifier: S3Upload_1
+                  spec:
+                    connectorRef: aws
+                    region: us-east-1
+                    bucket: harman-primetime-temp-staging
+                    sourcePath: harness-test
+                    target: harness-test
+              - step:
+                  type: RunTests
+                  name: RunTests_1
+                  identifier: RunTests_1
+                  spec:
+                    language: Java
+                    buildTool: Maven
+                    args: clean test
+                    runOnlySelectedTests: true
+                    reports:
+                      type: JUnit
+                      spec:
+                        paths:
+                          - "**/*.xml"
+                    enableTestSplitting: false
+        delegateSelectors:
+          - docker-delegate
+        when:
+          pipelineStatus: Success
