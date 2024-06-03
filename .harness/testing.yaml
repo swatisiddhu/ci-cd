@@ -26,20 +26,12 @@ pipeline:
           execution:
             steps:
               - step:
-                  type: RunTests
-                  name: RunTests_1
-                  identifier: RunTests_1
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
                   spec:
-                    language: Java
-                    buildTool: Maven
-                    args: clean test
-                    runOnlySelectedTests: true
-                    reports:
-                      type: JUnit
-                      spec:
-                        paths:
-                          - "**/*.xml"
-                    enableTestSplitting: false
+                    shell: Sh
+                    command: echo hello
         when:
           pipelineStatus: Success
         delegateSelectors:
