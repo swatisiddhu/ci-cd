@@ -27,6 +27,16 @@ pipeline:
                   spec:
                     shell: Sh
                     command: echo hello
+              - step:
+                  type: GitClone
+                  name: GitClone_1
+                  identifier: GitClone_1
+                  spec:
+                    connectorRef: gitupdated
+                    build:
+                      type: branch
+                      spec:
+                        branch: main
           caching:
             enabled: false
             paths: []
