@@ -40,7 +40,7 @@ pipeline:
                         paths:
                           - "**/*.xml"
                     enableTestSplitting: false
-        delegateSelectors:
-          - docker-delegate
         when:
           pipelineStatus: Success
+        delegateSelectors:
+          - linux-amd64
