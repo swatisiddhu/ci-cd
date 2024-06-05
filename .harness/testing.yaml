@@ -44,6 +44,15 @@ pipeline:
                       mvn package
                       cd target/
                       ls
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
+                  spec:
+                    connectorRef: account.harnessImage
+                    repo: ci-cd
+                    tags:
+                      - latest
           caching:
             enabled: false
             paths: []
