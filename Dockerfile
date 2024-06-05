@@ -1,5 +1,7 @@
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /harness/ci-cd
+RUN pwd
+RUN ls
 RUN mvn dependency:go-offline -B
 RUN mvn clean package
 
