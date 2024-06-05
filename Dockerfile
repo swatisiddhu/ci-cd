@@ -1,8 +1,6 @@
 FROM maven:3.8.5-openjdk-17 AS build
-WORKDIR /usr/src/app
-COPY pom.xml .
+WORKDIR /harness/ci-cd
 RUN mvn dependency:go-offline -B
-COPY src /usr/src/app/src
 RUN mvn clean package
 
 
@@ -16,7 +14,7 @@ WORKDIR $HOME
 EXPOSE 8080
 
 # NOTE we assume there's only 1 jar in the target dir
-COPY --from=build /usr/src/app/target/*.jar $HOME/artifacts/app.jar
+COPY --from=build /harness/ci-cd/target/*.jar $HOME/artifacts/app.jar
 
 USER 1001
 
