@@ -16,6 +16,4 @@ EXPOSE 8080
 # NOTE we assume there's only 1 jar in the target dir
 COPY --from=build /harness/ci-cd/target/*.jar $HOME/artifacts/app.jar
 
-USER 1001
-
 ENTRYPOINT exec java $JAVA_OPTS -jar artifacts/app.jar
