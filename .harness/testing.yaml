@@ -11,3 +11,8 @@ pipeline:
         template:
           templateRef: firstmavenbuild
           versionLabel: "1.0"
+  properties:
+    ci:
+      codebase:
+        connectorRef: gitupdated
+        build: <+input>
