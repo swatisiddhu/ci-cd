@@ -1,8 +1,8 @@
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /harness
-RUN pwd
+RUN echo pwd
 #RUN cd /harness/ci-cd
-RUN ls
+RUN echo $(ls -1 /harness)
 # RUN mvn dependency:go-offline -B
 RUN mvn -f /harness/ci-cd/pom.xml clean package
 
