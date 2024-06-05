@@ -45,3 +45,6 @@ pipeline:
                     tags:
                       - latest
                     dockerfile: /harness/ci-cd/Dockerfile
+                    context: /harness/ci-cd/
+                    target: /harness/ci-cd/target
+                    runAsUser: "1001"
