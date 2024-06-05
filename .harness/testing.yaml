@@ -42,6 +42,7 @@ pipeline:
                       cd ci-cd/
                       mvn clean
                       mvn package
+                      ls
           caching:
             enabled: false
             paths: []
