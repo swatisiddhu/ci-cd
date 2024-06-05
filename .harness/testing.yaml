@@ -26,17 +26,10 @@ pipeline:
                   identifier: Run_1
                   spec:
                     shell: Sh
-                    command: echo hello
-              - step:
-                  type: GitClone
-                  name: GitClone_1
-                  identifier: GitClone_1
-                  spec:
-                    connectorRef: gitupdated
-                    build:
-                      type: branch
-                      spec:
-                        branch: main
+                    command: |-
+                      echo hello
+                      mvn clean
+                      mvn package
           caching:
             enabled: false
             paths: []
