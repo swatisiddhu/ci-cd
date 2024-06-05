@@ -21,9 +21,19 @@ pipeline:
           execution:
             steps:
               - step:
+                  type: GitClone
+                  name: GitClone_1
+                  identifier: GitClone_1
+                  spec:
+                    connectorRef: gitupdated
+                    build:
+                      type: branch
+                      spec:
+                        branch: main
+              - step:
                   type: Run
-                  name: Run_1
-                  identifier: Run_1
+                  name: Run_2
+                  identifier: Run_2
                   spec:
                     shell: Sh
                     command: |-
