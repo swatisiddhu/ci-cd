@@ -3,7 +3,8 @@ WORKDIR /harness/ci-cd
 RUN echo $(pwd)
 #RUN cd harness/ci-cd
 RUN echo $(ls -a /harness/ci-cd)
-# RUN mvn dependency:go-offline -BRUN mvn -f /harness/ci-cd/pom.xml clean package
+# RUN mvn dependency:go-offline -B
+RUN mvn -f /harness/ci-cd/pom.xml clean package
 
 
 FROM eclipse-temurin:17.0.5_8-jre
