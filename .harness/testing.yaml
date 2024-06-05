@@ -26,7 +26,6 @@ pipeline:
                   identifier: GitClone_1
                   spec:
                     connectorRef: gitupdated
-                    cloneDirectory: /usr/src/app/
                     build:
                       type: branch
                       spec:
@@ -40,7 +39,7 @@ pipeline:
                     command: |-
                       echo hello
                       pwd
-                      cd /usr/src/app
+                      cd ci-cd/
                       mvn clean
                       mvn package
                       cd target/
