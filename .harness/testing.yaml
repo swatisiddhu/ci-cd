@@ -53,6 +53,7 @@ pipeline:
                     repo: ci-cd
                     tags:
                       - latest
+                    dockerfile: /harness/ci-cd/Dockerfile
           caching:
             enabled: false
             paths: []
