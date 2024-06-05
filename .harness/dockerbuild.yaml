@@ -4,11 +4,6 @@ pipeline:
   projectIdentifier: default_project
   orgIdentifier: default
   tags: {}
-  properties:
-    ci:
-      codebase:
-        connectorRef: gitupdated
-        build: <+input>
   stages:
     - stage:
         name: Build
@@ -16,7 +11,7 @@ pipeline:
         description: ""
         type: CI
         spec:
-          cloneCodebase: true
+          cloneCodebase: false
           platform:
             os: Linux
             arch: Amd64
@@ -69,3 +64,6 @@ pipeline:
                     dockerfile: /harness/ci-cd/Dockerfile
                     context: /harness/ci-cd/
                     runAsUser: "1001"
+          caching:
+            enabled: false
+            paths: []
