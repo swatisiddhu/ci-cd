@@ -38,6 +38,8 @@ pipeline:
                     shell: Sh
                     command: |-
                       echo hello
+                      pwd
+                      cd ci-cd/
                       mvn clean
                       mvn package
           caching:
