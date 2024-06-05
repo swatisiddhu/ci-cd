@@ -52,6 +52,7 @@ pipeline:
                         imageName: prod-adcall
                         tags:
                           - latest
+                        dockerfile: /harness/ci-cd/Dockerfile
               - step:
                   type: BuildAndPushDockerRegistry
                   name: BuildAndPushDockerRegistry_1
