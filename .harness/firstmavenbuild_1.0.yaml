@@ -40,12 +40,19 @@ template:
                   mvn package
                   cd target/
                   ls
+          - step:
+              type: S3Upload
+              name: S3Upload_1
+              identifier: S3Upload_1
+              spec:
+                connectorRef: aws
+                region: us-east-1
+                bucket: harman-primetime-temp-staging
+                sourcePath: harness-test/
       caching:
         enabled: false
         paths: []
     when:
       pipelineStatus: Success
-    delegateSelectors:
-      - linux-amd64
   identifier: firstmavenbuild
   versionLabel: "1.0"
