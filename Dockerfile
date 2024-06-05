@@ -4,7 +4,7 @@ RUN pwd
 RUN cd /harness/ci-cd
 RUN ls
 # RUN mvn dependency:go-offline -B
-RUN mvn clean package
+RUN mvn -f /harness/ci-cd/pom.xml clean package
 
 
 FROM eclipse-temurin:17.0.5_8-jre
