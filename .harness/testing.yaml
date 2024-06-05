@@ -38,8 +38,9 @@ pipeline:
                     shell: Sh
                     command: |-
                       echo hello
-                      pwd
                       cd ci-cd/
+                      pwd
+                      ls
                       mvn clean
                       mvn package
                       cd target/
@@ -54,6 +55,7 @@ pipeline:
                     tags:
                       - latest
                     dockerfile: /harness/ci-cd/Dockerfile
+                    runAsUser: "1001"
           caching:
             enabled: false
             paths: []
