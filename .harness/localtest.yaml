@@ -47,3 +47,5 @@ pipeline:
                       mvn clean package
         delegateSelectors:
           - docker-delegate
+        when:
+          pipelineStatus: Success
