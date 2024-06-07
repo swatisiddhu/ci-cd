@@ -4,11 +4,6 @@ pipeline:
   projectIdentifier: default_project
   orgIdentifier: default
   tags: {}
-  properties:
-    ci:
-      codebase:
-        connectorRef: gitupdated
-        build: <+input>
   stages:
     - stage:
         name: build
@@ -16,7 +11,7 @@ pipeline:
         description: ""
         type: CI
         spec:
-          cloneCodebase: true
+          cloneCodebase: false
           platform:
             os: Linux
             arch: Amd64
@@ -56,9 +51,7 @@ pipeline:
                     bucket: harman-primetime-temp-staging
                     sourcePath: target/actuator-demo-0.0.1-SNAPSHOT.jar
           caching:
-            enabled: true
+            enabled: false
             paths: []
         delegateSelectors:
           - docker-delegate
-        when:
-          pipelineStatus: All
