@@ -45,6 +45,15 @@ pipeline:
                     command: |-
                       echo hello
                       mvn clean package
+              - step:
+                  type: S3Upload
+                  name: S3Upload_1
+                  identifier: S3Upload_1
+                  spec:
+                    connectorRef: aws
+                    region: us-east-1
+                    bucket: harman-primetime-temp-staging
+                    sourcePath: " /harness-Vn2CKr5vR92HG6ifwvbmhA/target/actuator-demo-0.0.1-SNAPSHOT.jar"
         delegateSelectors:
           - docker-delegate
         when:
