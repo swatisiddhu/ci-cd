@@ -31,6 +31,7 @@ pipeline:
                   identifier: GitClone_1
                   spec:
                     connectorRef: gitupdated
+                    cloneDirectory: /home/inssiddhu
                     build:
                       type: branch
                       spec:
