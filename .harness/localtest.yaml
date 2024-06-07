@@ -34,3 +34,5 @@ pipeline:
                     command: |-
                       echo hello
                       mvn clean package
+        delegateSelectors:
+          - docker-delegate
