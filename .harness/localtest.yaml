@@ -32,6 +32,7 @@ pipeline:
                   spec:
                     connectorRef: gitupdated
                     cloneDirectory: /home/inssiddhu
+                    privileged: true
                     build:
                       type: branch
                       spec:
@@ -53,8 +54,11 @@ pipeline:
                     connectorRef: aws
                     region: us-east-1
                     bucket: harman-primetime-temp-staging
-                    sourcePath: " /harness-Vn2CKr5vR92HG6ifwvbmhA/target/actuator-demo-0.0.1-SNAPSHOT.jar"
+                    sourcePath: target/actuator-demo-0.0.1-SNAPSHOT.jar
+          caching:
+            enabled: true
+            paths: []
         delegateSelectors:
           - docker-delegate
         when:
-          pipelineStatus: Success
+          pipelineStatus: All
