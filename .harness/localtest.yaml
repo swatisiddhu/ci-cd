@@ -32,27 +32,26 @@ pipeline:
                       type: branch
                       spec:
                         branch: main
-              - parallel:
-                  - step:
-                      type: Run
-                      name: Run_1
-                      identifier: Run_1
-                      spec:
-                        shell: Sh
-                        command: |-
-                          echo hello
-                          mvn clean package
-                          pwd
-                          ls
-                  - step:
-                      type: S3Upload
-                      name: S3Upload_2
-                      identifier: S3Upload_2
-                      spec:
-                        connectorRef: aws
-                        region: us-east-1
-                        bucket: harman-primetime-temp-staging
-                        sourcePath: s3://harman-primetime-temp-staging/harness-test/
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    shell: Sh
+                    command: |-
+                      echo hello
+                      mvn clean package
+                      pwd
+                      ls
+              - step:
+                  type: S3Upload
+                  name: S3Upload_2
+                  identifier: S3Upload_2
+                  spec:
+                    connectorRef: aws
+                    region: us-east-1
+                    bucket: harman-primetime-temp-staging
+                    sourcePath: s3://harman-primetime-temp-staging/harness-test/
           caching:
             enabled: false
             paths: []
