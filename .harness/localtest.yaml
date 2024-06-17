@@ -58,8 +58,3 @@ pipeline:
             paths: []
         delegateSelectors:
           - docker-delegate
-  properties:
-    ci:
-      codebase:
-        connectorRef: gitupdated
-        build: <+input>
