@@ -26,7 +26,7 @@ pipeline:
                   identifier: GitClone_1
                   spec:
                     connectorRef: gitupdated
-                    privileged: true
+                    privileged: false
                     build:
                       type: branch
                       spec:
@@ -38,8 +38,12 @@ pipeline:
                   spec:
                     shell: Sh
                     command: |-
-                      echo hellocd ci-cd/
-                      mvn clean package -X
+                      echo hello
+                      cd ci-cd/
+                      pwd
+                      ls
+                      mvn clean
+                      mvn package
                       pwd
                       ls
               - step:
