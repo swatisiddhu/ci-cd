@@ -28,8 +28,6 @@ pipeline:
                     shell: Sh
                     command: |-
                       ls
-                      cd ci-cd/
-                      ls
                       pwd
               - step:
                   type: BuildAndPushECR
