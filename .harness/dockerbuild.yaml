@@ -44,8 +44,3 @@ pipeline:
           caching:
             enabled: false
             paths: []
-  properties:
-    ci:
-      codebase:
-        connectorRef: gitupdated
-        build: <+input>
