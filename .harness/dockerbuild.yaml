@@ -26,6 +26,7 @@ pipeline:
                   identifier: GitClone_1
                   spec:
                     connectorRef: gitupdated
+                    cloneDirectory: /harness/ci-cd
                     build:
                       type: branch
                       spec:
@@ -37,7 +38,8 @@ pipeline:
                   spec:
                     shell: Sh
                     command: |-
-                      cd ci-cd/
+                      cd harness/ci-cd/
+                      ls
                       pwd
               - step:
                   type: BuildAndPushECR
