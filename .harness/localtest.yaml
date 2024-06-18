@@ -40,7 +40,7 @@ pipeline:
                     shell: Sh
                     command: |-
                       echo hello
-                      mvn clean package
+                      mvn clean package -X
                       pwd
                       ls
               - step:
