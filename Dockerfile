@@ -1,8 +1,8 @@
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR ci-cd/
-RUN echo $(pwd)
+RUN pwd
 #RUN cd harness/ci-cd
-RUN echo $(find / -name "*.xml" -mtime 5)
+RUN ls
 # RUN mvn dependency:go-offline -B
 #RUN mvn -f pom.xml clean package
 
