@@ -11,7 +11,7 @@ template:
         os: Linux
         arch: Amd64
       runtime:
-        type: Cloud
+        type: Docker
         spec: {}
       execution:
         steps:
