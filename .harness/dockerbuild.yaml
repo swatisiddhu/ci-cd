@@ -31,6 +31,15 @@ pipeline:
                       spec:
                         branch: main
               - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    shell: Sh
+                    command: |-
+                      cd ci-cd/
+                      pwd
+              - step:
                   type: BuildAndPushECR
                   name: BuildAndPushECR_1
                   identifier: BuildAndPushECR_1
@@ -47,8 +56,3 @@ pipeline:
             paths: []
         delegateSelectors:
           - docker-delegate
-  properties:
-    ci:
-      codebase:
-        connectorRef: gitupdated
-        build: <+input>
