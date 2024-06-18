@@ -1,3 +1,6 @@
+RUN echo "PWD is: $PWD"
+RUN cd ci-cd/
+RUN echo "PWD is: $PWD"
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR ci-cd/
 RUN echo "PWD is: $PWD"
