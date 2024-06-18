@@ -1,5 +1,5 @@
 FROM maven:3.8.5-openjdk-17 AS build
-WORKDIR ci-cd/
+WORKDIR harness-build/
 RUN echo "PWD is: $PWD"
 RUN pwd
 RUN ls -a
