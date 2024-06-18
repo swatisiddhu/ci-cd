@@ -46,6 +46,9 @@ pipeline:
                       mvn package
                       pwd
                       ls
+                      cd target/
+                      ls
+                      pwd
               - step:
                   type: S3Upload
                   name: S3Upload_2
