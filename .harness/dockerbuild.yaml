@@ -29,9 +29,9 @@ pipeline:
                     command: |-
                       ls
                       pwd
-                      mkdir /ci-cd
+                      mkdir /harness-build
                       ls -a /
-                      cp -r * /ci-cd/*
+                      cp -r * /harness-build/*
               - step:
                   type: BuildAndPushECR
                   name: BuildAndPushECR_1
