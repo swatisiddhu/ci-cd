@@ -38,7 +38,7 @@ pipeline:
                   spec:
                     shell: Sh
                     command: |-
-                      cd harness/ci-cd/
+                      cd ci-cd/
                       ls
                       pwd
               - step:
