@@ -44,6 +44,13 @@ pipeline:
                     tags:
                       - latest
                     dockerfile: ci-cd/Dockerfile
+              - step:
+                  type: Run
+                  name: Run_2
+                  identifier: Run_2
+                  spec:
+                    shell: Sh
+                    command: rm -rf /harness-build
           caching:
             enabled: false
             paths: []
