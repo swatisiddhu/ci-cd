@@ -4,19 +4,19 @@ RUN echo $(pwd)
 #RUN cd harness/ci-cd
 RUN echo $(find / -name "*.xml" -mtime 5)
 # RUN mvn dependency:go-offline -B
-RUN mvn -f pom.xml clean package
+#RUN mvn -f pom.xml clean package
 
 
-FROM eclipse-temurin:17.0.5_8-jre
+#FROM eclipse-temurin:17.0.5_8-jre
 
 # Set working directory
-ENV HOME=/opt/app
-WORKDIR $HOME
+#ENV HOME=/opt/app
+#WORKDIR $HOME
 
 # Expose the port on which your service will run
-EXPOSE 8080
+#EXPOSE 8080
 
 # NOTE we assume there's only 1 jar in the target dir
-COPY --from=build /harness/ci-cd/target/*.jar $HOME/artifacts/app.jar
+#COPY --from=build ci-cd/target/*.jar $HOME/artifacts/app.jar
 
-ENTRYPOINT exec java $JAVA_OPTS -jar artifacts/app.jar
+#ENTRYPOINT exec java $JAVA_OPTS -jar artifacts/app.jar
