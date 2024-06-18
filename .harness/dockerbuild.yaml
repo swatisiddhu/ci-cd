@@ -38,6 +38,8 @@ pipeline:
                   spec:
                     shell: Sh
                     command: |-
+                      cd /
+                      ls
                       cd ci-cd/
                       ls
                       pwd
@@ -58,8 +60,3 @@ pipeline:
             paths: []
         delegateSelectors:
           - docker-delegate
-  properties:
-    ci:
-      codebase:
-        connectorRef: gitupdated
-        build: <+input>
