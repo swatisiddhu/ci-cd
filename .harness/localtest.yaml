@@ -57,7 +57,7 @@ pipeline:
                     connectorRef: aws
                     region: us-east-1
                     bucket: harman-primetime-temp-staging
-                    sourcePath: s3://harman-primetime-temp-staging/harness-test/
+                    sourcePath: ci-cd/target
           caching:
             enabled: false
             paths: []
