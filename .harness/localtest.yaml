@@ -57,7 +57,7 @@ pipeline:
                     connectorRef: aws
                     region: us-east-1
                     bucket: harman-primetime-temp-staging
-                    sourcePath: ci-cd/target
+                    sourcePath: ci-cd/target/*.jar
           caching:
             enabled: false
             paths: []
