@@ -4,7 +4,7 @@ RUN echo $(pwd)
 #RUN cd harness/ci-cd
 RUN echo $(find / -name "*.xml" -mtime 5)
 # RUN mvn dependency:go-offline -B
-RUN mvn -f ci-cd/pom.xml clean package
+RUN mvn -f pom.xml clean package
 
 
 FROM eclipse-temurin:17.0.5_8-jre
