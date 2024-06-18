@@ -2,6 +2,7 @@ FROM maven:3.8.5-openjdk-17 AS build
 #WORKDIR ci-cd/
 RUN echo "PWD is: $PWD"
 RUN pwd
+RUN ls -a
 RUN cd ci-cd/
 RUN ls
 #RUN cd harness/ci-cd
