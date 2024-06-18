@@ -1,14 +1,10 @@
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /harness-build/ci-cd
-RUN echo "PWD is: $PWD"
-RUN pwd
-RUN ls -a
-RUN cd /harness-build/ci-cd
 RUN mvn dependency:go-offline -B
 RUN mvn -f pom.xml clean package
 
 
-#FROM eclipse-temurin:17.0.5_8-jre
+FROM eclipse-temurin:17.0.5_8-jre
 
 # Set working directory
 ENV HOME=/opt/app
