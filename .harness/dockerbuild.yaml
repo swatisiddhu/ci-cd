@@ -11,7 +11,7 @@ pipeline:
         description: ""
         type: CI
         spec:
-          cloneCodebase: false
+          cloneCodebase: true
           platform:
             os: Linux
             arch: Amd64
@@ -60,3 +60,8 @@ pipeline:
             paths: []
         delegateSelectors:
           - docker-delegate
+  properties:
+    ci:
+      codebase:
+        connectorRef: gitupdated
+        build: <+input>
