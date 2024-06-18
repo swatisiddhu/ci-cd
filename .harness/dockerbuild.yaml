@@ -21,24 +21,12 @@ pipeline:
           execution:
             steps:
               - step:
-                  type: GitClone
-                  name: GitClone_1
-                  identifier: GitClone_1
-                  spec:
-                    connectorRef: gitupdated
-                    cloneDirectory: /harness/ci-cd
-                    build:
-                      type: branch
-                      spec:
-                        branch: main
-              - step:
                   type: Run
                   name: Run_1
                   identifier: Run_1
                   spec:
                     shell: Sh
                     command: |-
-                      cd /
                       ls
                       cd ci-cd/
                       ls
