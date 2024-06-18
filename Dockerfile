@@ -1,8 +1,7 @@
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR ci-cd/
-RUN pwd
+RUN echo "PWD is: $PWD"
 #RUN cd harness/ci-cd
-RUN ls
 # RUN mvn dependency:go-offline -B
 #RUN mvn -f pom.xml clean package
 
