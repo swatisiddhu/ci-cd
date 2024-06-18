@@ -31,7 +31,7 @@ pipeline:
                       pwd
                       mkdir /harness-build
                       ls -a /
-                      cp -r * /harness-build/*
+                      cp -a . /harness-build/*
               - step:
                   type: BuildAndPushECR
                   name: BuildAndPushECR_1
