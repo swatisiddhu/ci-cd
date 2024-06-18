@@ -11,7 +11,7 @@ pipeline:
         description: ""
         type: CI
         spec:
-          cloneCodebase: true
+          cloneCodebase: false
           platform:
             os: Linux
             arch: Amd64
@@ -20,6 +20,16 @@ pipeline:
             spec: {}
           execution:
             steps:
+              - step:
+                  type: GitClone
+                  name: GitClone_1
+                  identifier: GitClone_1
+                  spec:
+                    connectorRef: gitupdated
+                    build:
+                      type: branch
+                      spec:
+                        branch: main
               - step:
                   type: Run
                   name: Run_1
@@ -56,8 +66,3 @@ pipeline:
             paths: []
         delegateSelectors:
           - docker-delegate
-  properties:
-    ci:
-      codebase:
-        connectorRef: gitupdated
-        build: <+input>
