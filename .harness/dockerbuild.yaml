@@ -41,6 +41,7 @@ pipeline:
                     imageName: test
                     tags:
                       - latest
+                    dockerfile: ci-cd/Dockerfile
           caching:
             enabled: false
             paths: []
