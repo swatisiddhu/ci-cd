@@ -53,7 +53,7 @@ pipeline:
                     imageName: test
                     tags:
                       - latest
-                    dockerfile: ci-cd/Dockerfile
+                    dockerfile: /harness-build/ci-cd/Dockerfile
               - step:
                   type: Run
                   name: Run_2
