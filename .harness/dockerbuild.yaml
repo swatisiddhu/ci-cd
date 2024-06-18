@@ -29,6 +29,8 @@ pipeline:
                     command: |-
                       ls
                       pwd
+                      mkdir /ci-cd
+                      cp -r * /ci-cd/*
               - step:
                   type: BuildAndPushECR
                   name: BuildAndPushECR_1
