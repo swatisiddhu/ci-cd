@@ -16,7 +16,7 @@ pipeline:
             os: Linux
             arch: Amd64
           runtime:
-            type: Cloud
+            type: Docker
             spec: {}
           execution:
             steps:
@@ -26,45 +26,21 @@ pipeline:
                   identifier: GitClone_1
                   spec:
                     connectorRef: gitupdated
-                    cloneDirectory: /harness/ci-cd/
                     build:
                       type: branch
                       spec:
                         branch: main
-              - parallel:
-                  - step:
-                      type: Run
-                      name: Run_1
-                      identifier: Run_1
-                      spec:
-                        shell: Sh
-                        command: |-
-                          cd /harness/ci-cd
-                          ls
-                  - step:
-                      type: BuildAndPushECR
-                      name: BuildAndPushECR_1
-                      identifier: BuildAndPushECR_1
-                      spec:
-                        connectorRef: aws
-                        region: us-east-1
-                        account: "518616560215"
-                        imageName: prod-adcall
-                        tags:
-                          - latest
-                        dockerfile: /harness/ci-cd/Dockerfile
               - step:
-                  type: BuildAndPushDockerRegistry
-                  name: BuildAndPushDockerRegistry_1
-                  identifier: BuildAndPushDockerRegistry_1
+                  type: BuildAndPushECR
+                  name: BuildAndPushECR_1
+                  identifier: BuildAndPushECR_1
                   spec:
-                    connectorRef: account.harnessImage
-                    repo: ci-cd
+                    connectorRef: aws
+                    region: us-east-1
+                    account: "518616560215"
+                    imageName: test
                     tags:
                       - latest
-                    dockerfile: /harness/ci-cd/Dockerfile
-                    context: /harness/ci-cd/
-                    runAsUser: "1001"
           caching:
             enabled: false
             paths: []
