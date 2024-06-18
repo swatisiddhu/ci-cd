@@ -4,8 +4,8 @@ RUN echo "PWD is: $PWD"
 RUN pwd
 RUN ls -a
 #RUN cd harness/ci-cd
-# RUN mvn dependency:go-offline -B
-#RUN mvn -f pom.xml clean package
+RUN mvn dependency:go-offline -B
+RUN mvn -f /harness-build/pom.xml clean package
 
 
 #FROM eclipse-temurin:17.0.5_8-jre
