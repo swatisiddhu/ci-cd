@@ -39,7 +39,6 @@ pipeline:
                     command: |-
                       ls
                       pwd
-                      mkdir /harness-build
                       ls -a /
                       cp -a . /harness-build
               - step:
