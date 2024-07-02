@@ -20,16 +20,32 @@ pipeline:
             spec: {}
           execution:
             steps:
-              - step:
-                  type: GitClone
-                  name: GitClone_1
-                  identifier: GitClone_1
-                  spec:
-                    connectorRef: gitupdated
-                    build:
-                      type: branch
+              - parallel:
+                  - step:
+                      type: GitClone
+                      name: GitClone_1
+                      identifier: GitClone_1
                       spec:
-                        branch: main
+                        connectorRef: gitupdated
+                        build:
+                          type: branch
+                          spec:
+                            branch: main
+                  - step:
+                      type: Semgrep
+                      name: Semgrep_1
+                      identifier: Semgrep_1
+                      spec:
+                        target:
+                          detection: auto
+                          type: repository
+                        advanced:
+                          log:
+                            level: info
+                          args:
+                            cli: ""
+                        mode: orchestration
+                        config: default
               - step:
                   type: Run
                   name: Run_1
