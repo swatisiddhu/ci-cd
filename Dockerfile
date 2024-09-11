@@ -7,7 +7,6 @@ RUN mvn -f ./pom.xml clean package
 
 FROM eclipse-temurin:17.0.5_8-jre
 
-# Set working directory
 ENV HOME=/opt/app
 WORKDIR $HOME
 
